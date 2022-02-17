@@ -1,0 +1,56 @@
+<p style="color: green"><%= notice %></p>
+<div class="nav2">
+    <ul class="nav">
+      <li>
+        <a><%= link_to "アカウント", controller: 'signs', action:'account'%></a>
+      </li>
+      <li>
+        <a><%= link_to "プロフィール", controller: 'signs', action:'show'%></a>
+      </li>
+    </ul>
+</div>
+
+<%= form_with(model: @sign) do |form| %>
+
+  <div class="back">
+    <div class="back2">
+
+<%= render "layouts/error_messages"%>
+
+    <h1>プロフィール</h1>
+  <div>
+    <% if @sign.icon? %>
+       <p class="icon"><%= image_tag @sign.icon.url %></p>
+    <% else %>
+       <p class="icon"><%= image_tag ("https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg") %></p>
+    <% end %>
+  </div>
+  <div class="main">
+  <div class=main_cild>
+      <tr>
+      <th><%= form.label :icon ,"アイコン画像" %></th><i class="red">必須</i>
+      <td><%= form.file_field :icon %></td>
+      </tr>
+  </div>
+  <div class=main_cild>
+      <tr>
+      <th><%= form.label :name ,"名前" %></th><i class="red">必須</i>
+      <td><%= form.text_field :"name" %></td>
+      </tr>
+  </div>
+  <div class=main_cild>
+      <tr>
+       <th class="intro"><%= form.label :introduction ,"自己紹介" %></th><i class="red2">必須</i>
+       <td><%= form.text_area :introduction %></td>
+      </tr>
+  </div>
+  </div>
+
+  <div>
+  <div class="sub">
+    <a><%= form.submit "更新"%></a>
+  </div>
+
+<% end %>
+</div>
+</div>

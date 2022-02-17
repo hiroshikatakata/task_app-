@@ -6,6 +6,8 @@ ruby "3.0.2"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.1"
 
+gem 'bcrypt',  '3.1.12'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
@@ -41,6 +43,10 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
+gem 'rails-i18n'
+gem 'pry-rails'
+
+gem "sassc-rails"
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -70,3 +76,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'carrierwave'
+
+gem 'devise'
+
+gem 'ransack'

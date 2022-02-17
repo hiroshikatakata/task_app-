@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>登録済みルーム一覧</h1>
+
+<table>
+ <thead>
+  <tr>
+   <th>ルーム画像</th>
+   <th>ルーム名</th>
+   <th>ルーム紹介</th>
+   <th>料金</th>
+   <th>作成日</th>
+  </tr>
+ </thead>
+
+<tbody>
+  <% @room.each do |room| %>
+  <tr>
+   <td><%= room.icon %></td>
+   <td><%= room.name %></td>
+   <td><%= room.introduction %></td>
+   <td><%= room.updated_at.to_s(:datetime_jp) %></td>
+  </tr>
+    <% end %>
+  </tbody>
+</table>

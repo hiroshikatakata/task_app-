@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="container-fiuld reservations">
+<h4 class="pb-4">登録済みルーム一覧</h4>
+
+<table>
+ <thead>
+  <tr>
+   <th>ルーム画像</th>
+   <th>ルーム名</th>
+   <th>ルーム紹介</th>
+   <th>料金</th>
+   <th>作成日</th>
+  </tr>
+ </thead>
+
+<tbody>
+  <% @rooms.each do |room| %>
+  <tr>
+    <td><% if room.icon? %>
+       <img class="myroom_icon" alt="メニュー" src="<%= "#{room.icon.url}" %>">
+    <% else %>
+    　 <img class="myroom_icon" alt="メニュー" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg">
+    <% end %>
+    </td>
+   <td><%= link_to "#{room.name}", room %></td>
+   <td><%= room.introduction %></td>
+   <td>¥<%= room.price %></td>
+   <td><%= room.updated_at.to_s(:datetime_jp) %></td>
+  </tr>
+    <% end %>
+</tbody>
+</table>

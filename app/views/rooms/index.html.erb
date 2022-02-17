@@ -1,0 +1,47 @@
+<p style="color: green"><%= notice %></p>
+
+  <div class="top">
+      <div class="top-main">
+          <div class="container">
+              <div class="row col-lg-6">
+                  <div class="form-fream">
+                      <div class="form-area">
+                          <p class="form-area-title mb-4">Potepan Shareでまだ体験したことのない旅をしよう</p>
+                          <%= search_form_for @q, url: search_rooms_path do |f| %>
+                            <%= f.search_field :name_cont,:placeholder => "エリア" %>
+
+                           <div class="actions"><%= f.submit "探す" %></div>
+                          <% end %>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="panel-area m-5">
+              <h1 class="section-title">おすすめのエリア</h1>
+              <div class="row">
+                  <div class="panel-item col-lg-3 col-6">
+                      <span>東京</span>
+                      <a href="http://localhost:3000/rooms/search?q%5Baddress_cont%5D=%E6%9D%B1%E4%BA%AC&q%5Bname_or_address_or_price_or_introduction_cont%5D=&commit=%E6%8E%A2%E3%81%99"><img class="panel-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"></a>
+                      <div class="shadow"></div>
+                  </div>
+                  <div class="panel-item col-lg-3 col-6">
+                      <span>大阪</span>
+                      <a href="http://localhost:3000/rooms/search?q%5Baddress_cont%5D=%E5%A4%A7%E9%98%AA&q%5Bname_or_address_or_price_or_introduction_cont%5D=&commit=%E6%8E%A2%E3%81%99"><img class="panel-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"></a>
+                      <div class="shadow"></div>
+                  </div>
+                  <div class="panel-item col-lg-3 col-6">
+                      <span>京都</span>
+                      <a href="http://localhost:3000/rooms/search?q%5Baddress_eq%5D=%E4%BA%AC%E9%83%BD%E5%BA%9C%E4%BA%AC%E9%83%BD%E5%B8%82&q%5Bname_or_address_or_price_or_introduction_cont%5D=&commit=%E6%8E%A2%E3%81%99"><img class="panel-image shadow" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg"></a>
+                      <div class="shadow"></div>
+                  </div>
+                  <div class="panel-item col-lg-3 col-6">
+                      <span>札幌</span>
+                      <a href="http://localhost:3000/rooms/search?q%5Baddress_cont%5D=%E6%9C%AD%E5%B9%8C&q%5Bname_or_address_or_price_or_introduction_cont%5D=&commit=%E6%8E%A2%E3%81%99"><img class="panel-image" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg"></a>
+                      <div class="shadow"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>

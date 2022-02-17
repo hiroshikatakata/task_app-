@@ -1,0 +1,27 @@
+<div class="container reservations-new">
+<div class="row">
+<div class="col-6 offset-3">
+<div class="reservations-new-nav">
+<h4 class="reservations-new-check-content">予約内容確認</h4>
+
+<h5>¥<%= @room.price %> / 日</h5>
+<div class="reservations-new-date-select">
+   <div class="reservations_label">開始日</div>
+
+    <div class="reservations_label"><%= @room.start_date %></div>
+   <div class="reservations_label">終了日</div>
+   <div class="reservations_label"><%= @room.end_date %></div>
+   <div class="reservations_label">使用日数</div>
+   <div class="reservations_label"><%= @room.days %></div>
+   <div class="reservations_label">人数</div>
+   <div class="reservations_label"><%= @room.number %></div>
+   <div class="reservations_label">合計金額</div>
+   <div class="reservations_label"><%= @room.cost %></div>
+   <%= form_with model: @room do |form| %>
+     <div><%= form.submit "予約する"%></div>
+      <div class="reservations_back_button">ルーム詳細に戻る</div>
+   <% end %></div>
+ </div>
+</div>
+</div>
+</div>
