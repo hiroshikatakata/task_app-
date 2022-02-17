@@ -1,0 +1,50 @@
+<%= form_with(model: room) do |form| %>
+  <% if room.errors.any? %>
+    <div class="error_room" style="color: red">
+      <h2><%= pluralize(room.errors.count, "error") %> prohibited this room from being saved:</h2>
+
+      <ul>
+        <% room.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="back">
+  <div class="back2">
+  <h3 class="new_room_title">ルーム情報登録</h3>
+  <div class="main">
+  <div class=main_cild>
+  <div class="new_room_content new_room_content_name">
+    <i><%= form.label :name,"ルーム名" %></i><i class="red">必須</i>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="new_room_content">
+    <i><%= form.label :introduction,"ルーム紹介" %></i><i class="red">必須</i>
+    <%= form.text_area :introduction %>
+  </div>
+
+  <div class="new_room_content">
+    <i><%= form.label :price,"料金" %></i><i class="red">必須</i>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="new_room_content">
+    <i><%= form.label :address,"住所"%></i><i class="red">必須</i>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="new_room_content">
+    <i><%= form.label :icon,"ルーム画像" %></i><i class="red">必須</i>
+    <%= form.file_field :icon %>
+  </div>
+
+  <div class="new_room_content">
+    <%= form.submit "登録" %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>

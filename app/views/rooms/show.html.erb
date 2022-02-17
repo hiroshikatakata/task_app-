@@ -1,0 +1,57 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div class="show_room">
+<div class="row">
+<div class="show_room_main">
+<img class="room-show-image" alt="room-show-image" src="<%= "#{@room.icon.url}" %>">
+<div class="room_show_detile">
+<div class="room_show_detile_icon">
+<% if @sign.icon? %>
+   <img class="host-icon" alt="メニュー" src="<%= "#{@sign.icon.url}" %>">
+<% else %>
+   <img class="host-icon" alt="メニュー" src= "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg"
+<% end %>
+</div>
+<div class="room_show_plofile">
+  <p class="room_show_plofile_name"><%= @room.name %></p>
+  <p class="room_show_plofile_address"><%= @room.address %></p>
+</div>
+</div>
+<p class="room-show-detile-content"><%= @room.introduction %></p>
+</div>
+
+<%= render "shared/error"%>
+
+<%= form_with model: @room do |form| %>
+<div class="show_room_main">
+<div class="col-md-4">
+<div class="room-show-nav">
+ <h5 class="price-icon">¥<%= @room.price %> / 日</h5>
+ <div class="room-show-date-select">
+ <div class="show_label">
+ <%= form.label :start_date ,"開始日" %>
+ </div>
+ <div class="show_label">
+ <%= form.date_select :start_date %>
+ </div>
+ <div class="show_label">
+ <%= form.label :end_date ,"終了日" %>
+</div>
+<div class="show_label">
+ <%= form.date_select :end_date %>
+ </div>
+ <div class="show_label">
+ <%= form.label :number ,"人数" %>
+</div>
+<div class="show_label">
+ <%= form.text_field :number %>
+ </div>
+<div><%= form.submit "予約する"%></div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

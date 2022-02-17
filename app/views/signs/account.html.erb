@@ -1,0 +1,26 @@
+<div class="nav2">
+  <ul>
+    <li>
+      <%= link_to "アカウント", controller: 'signs', action:'account'%>
+    </li>
+    <li>
+      <%= link_to "プロフィール", controller: 'signs', action:'show'%>
+    </li>
+  </ul>
+</div>
+
+<div class="back">
+<div class="back2">
+<h1>アカウント</h1>
+
+<div class="main">
+<p>メールアドレス : <%= @sign.email %></p>
+<p>パスワード : ******</p>
+</div>
+  <%= link_to controller: 'signs/registrations', action:'edit' do %>
+      <div class="btntextchange">
+  　　　　　　　　　　　　　<span>編集</span>
+  　　　　　　　　　</div>
+   <% end %>
+</div>
+</div>

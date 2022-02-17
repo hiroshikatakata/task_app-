@@ -11,6 +11,61 @@
   </head>
 
   <body>
+    <header class="header">
+      <div class="header_nav">
+        <a href="/rooms/"><img class="logo" alt="サイトのロゴ画像" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"></a>
+      </div>
+    　<div class="header_nav">
+    <div class="header_serch">
+      <%= search_form_for @q, url: search_rooms_path do |f| %>
+       <div class="header_serch_child"><%= f.search_field :address_cont,:placeholder => "エリア" %></div>
+       <div class="header_serch_child"><%= f.search_field :name_or_address_or_price_or_introduction_cont,:placeholder => "キーワード"%></div>
+       <div class="display-none"><div class="actions"><%= f.submit "探す" %></div></div>
+      <% end %>
+    </div>
+    </div>
+      <% if sign_signed_in? %> <!-- ユーザーがログインしているか調べる -->
+        <!-- ユーザーがログインしていた時の処理 -->
+      <div class="header_nav">
+        <div class="nav-item"><%= @sign.name %></div>
+      </div>
+
+      <div class="header_nav">
+       <div class="menu">
+         <% if @sign.icon? %>
+            <label for="menu_bar01"><img class="menu2" alt="メニュー" src="<%= "#{@sign.icon.url}" %>"></label>
+         <% else %>
+         　 <label for="menu_bar01"><img class="menu" alt="メニュー" src="https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg"></label>
+         <% end %>
+           <input type="checkbox" id="menu_bar01" />
+           <ul id="links01">
+               <li><%= link_to "ルーム登録", new_room_path %></li>
+               <li class="q"><a href="/rooms//mycheckroom">予約済ルーム一覧</a></li>
+               <li class="q"><a href="/rooms//myroom">登録済ルーム一覧</a></li>
+               <li class="q"><a href="/signs/account">設定</a></li>
+               <li><%= button_to 'ログアウト', :destroy_sign_session, method: :delete %></li>
+           </ul>
+       </div>
+      </div>
+
+
+      <% else %>
+        <!-- ユーザーがログインしていなかった時の処理 -->
+        <div class="header_nav">
+        <div class="header_log"><%= link_to  new_sign_session_path do %>
+           <div class="header_log_button">ログイン</div>
+        <% end %></div><!-- ログイン画面に移行する -->
+        <div class="header_log"><%= link_to  new_sign_registration_path do %>
+           <div class="header_log_button2">登録する</div><!-- 新規登録画面に移行する -->
+        <% end %></div>
+        </div>
+      <% end %>
+
+    </header>
     <%= yield %>
+
+    <footer class="footer">
+      <p>© 2022 POTEPAN.INC.</p>
+    </footer>
   </body>
 </html>

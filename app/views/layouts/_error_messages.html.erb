@@ -1,0 +1,9 @@
+<div class="error_explanation2">
+<% if @sign.errors.any? %>
+  <% @sign.errors.full_messages.each do |message| %>
+    <ul>
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
+</div>
